@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  
+    <form action="">
+        <div class="container">
+            <div class="row">
+                <div class="user-info-container">
+                    <h3 class="table-user-list">Table User List</h3>
+                    <div class="table-user">
+                        
+                        <table class="table table-hover table-bordered">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">stt</th>
+                                <th scope="col">id</th>
+                                <th scope="col">email</th>
+                                <th scope="col">user name</th>
+                                <th scope="col">password</th>
+                                <th scope="col">loại user</th>
+                                <th scope="col">sửa , xóa, chi tiết</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% userList.forEach(function(item,index){ %>
+                                <tr>
+                                  <th scope="row"><%=index +1%></th>
+                                  <td><%= item.id%></td>
+                                  <td><%= item.email%></td>
+                                  <td><%= item.username%></td>
+                                  <td><%= item.password%></td>
+                                  <td><%= item.type%></td>
+                                  
+                                  <td> 
+                                      
+                                      <button type="button" class="btn btn-warning">sửa</button>
+                                      <button type="button" class="btn btn-danger">xóa</button>
+                                      <button type="button" class="btn btn-info">chi tiết</button>    
+                                  </td>
+                                </tr>
+                            <% }) %>
+                              
+                              
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </form>
+    
+</body>
+</html>
