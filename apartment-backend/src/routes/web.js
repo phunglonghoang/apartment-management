@@ -1,14 +1,16 @@
 import express from "express";
 import { handleHelloWorld } from "../controller/home/homeController";
-import { handelUserPage, handleCreateUser, } from "../controller/users/userController";
+import userController from "../controller/users/userController";
 
 const router = express.Router();
 
 const initWebRoutes = (app) => {
     router.get("/", handleHelloWorld);
-    router.get("/users/user-list",handelUserPage );
-    
-    router.post("/users/create-user",handleCreateUser);  
+    router.get("/users/user-list",userController.handelUserPage );
+    router.post("/users/create-user",userController.handleCreateUser);  
+    router.post("/delete-user/:id", userController.handelDeleteUser)
+    router.get("/edit-user/:id",userController.getEditUserPage)
+    router.post("/users/edit-user", userController.handelUpdateUser);
     return app.use("/",router);
 }
 

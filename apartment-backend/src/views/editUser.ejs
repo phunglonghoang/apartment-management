@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sửa User</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <form method="post" action="/users/edit-user">
+        <div class="container">
+          <div class="col-4"></div>
+          <div class="col-4"><h2>list User </h2></div>
+          <div class="col-4"></div>
+            <div class="row">
+            <input hidden value="<%=userData.id%>" name="id">
+        <div class="mb-3 col-6">
+          <label for="Email" class="form-label">Email address</label>
+          <input value="<%=userData.email%>" type="email" class="form-control" id="Email" name="email"  required aria-describedby="emailHelp">
+          
+        </div>
+        <div class="col-6">
+
+        </div>
+      
+        <div class="mb-3 col-6">
+            <label for="username" class="form-label">name</label>
+            <input value="<%=userData.username%>" type="text" name="username" class="form-control" id="username"  required>
+          </div>
+          <div class="col-6">
+
+          </div>
+        
+        
+        <div class="col-6">
+            <select  class="form-select" name="type" required aria-label="Default select example">
+              <option value="<%=userData.acc_type%>"><%=userData.acc_type%></option>
+               
+              </select>
+    </div>
+       <div class="col-12 pt-4">
+        <button type="submit" class="btn btn-primary ">Submit</button>
+    </div>
+            </div>
+        </div>
+        
+    </form>
+</body>
+</html>

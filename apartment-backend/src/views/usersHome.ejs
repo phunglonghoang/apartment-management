@@ -37,7 +37,7 @@
         </div>
         <div class="col-6"></div>
         <div class="col-6">
-            <select class="form-select" name="type" required aria-label="Default select example">
+            <select class="form-select" name="acc_type" required aria-label="Default select example">
               <option value="thành viên">thành viên</option>
                 <option value="nhân viên">nhân viên</option>
                 <option value="chủ phòng">chủ phòng</option>
@@ -51,5 +51,62 @@
         </div>
         
     </form>
+    <form action="">
+      <div class="container">
+          <div class="row">
+              <div class="user-info-container">
+                  <h3 class="table-user-list">Table User List</h3>
+                  <div class="table-user">
+                      
+                      <table class="table table-hover table-bordered">
+                          <thead class="thead-dark">
+                            <tr>
+                              
+                              <th scope="col">id</th>
+                              <th scope="col">email</th>
+                              <th scope="col">user name</th>
+                              <th scope="col">password</th>
+                              <th scope="col">loại user</th>
+                              <th scope="col">sửa , xóa, chi tiết</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% userList.forEach(function(item,index){ %>
+                              <tr>
+                                
+                                <td><%= item.id%></td>
+                                <td><%= item.email%></td>
+                                <td><%= item.username%></td>
+                                <td><%= item.password%></td>
+                                <td><%= item.acc_type%></td>
+                                
+                                <td> 
+                                  <form action="/edit-user/<%=  item.id %>" method="get" style="display: inline;">
+                                    <button type="submit"  class="btn btn-warning">
+                                      sửa
+
+                                    </button>
+                                </form>
+                                    <form action="/delete-user/<%=  item.id %>" method="POST" style="display: inline;">
+                                      <button type="submit"  class="btn btn-danger">
+                                        xóa
+
+                                      </button>
+                                  </form>
+                                    <button type="button" class="btn btn-info">chi tiết</button>    
+                                </td>
+                              </tr>
+                          <% }) %>
+                            
+                            
+                          </tbody>
+                        </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+     
+  </form>
+  
 </body>
 </html>
