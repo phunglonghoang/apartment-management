@@ -12,12 +12,12 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert('Users', [{
-       email: 'LongHoang@gmail.com ',
-       username: 'hoang',
-       password:"123",
-       acc_type: "nhân viên"
-       }], {});
+    // await queryInterface.bulkInsert('User', [{
+    //    email: 'LongHoang@gmail.com ',
+    //    username: 'hoang',
+    //    password:"123",
+    //    acc_type: "nhân viên"
+    //    }], {});
   },
   
   async down (queryInterface, Sequelize) {

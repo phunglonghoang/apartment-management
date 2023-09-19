@@ -13,11 +13,11 @@ const handleCreateUser =async(req, res) => {
     // console.log("check user", userList)
     userService.createNewUser(email ,username, password, acc_type) 
     
-    return res.redirect ("/users/user-list")
+    return res.redirect ("/user/user-list")
 }
 const handelDeleteUser =async(req, res)=> {
    await userService.deleteUser(req.params.id);
-   return res.redirect("/users/user-list")
+   return res.redirect("/user/user-list")
 }
 
 //handel sửa user
@@ -25,9 +25,7 @@ const getEditUserPage = async(req, res ) =>{
     let  id = req.params.id;
     let user = await userService.getUserById(id);
     let userData = {};
-    if(user && user.length >0){
-        userData = user [0];
-    }
+    userData = user;
  
    return res.render("editUser.ejs", {userData });
 }
