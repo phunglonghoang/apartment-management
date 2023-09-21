@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+        User.belongsTo(models.Group);
+        User.hasMany(models.Room)
+        User.belongsToMany(models.Fee, {through: 'Fee_User'})
+        User.hasMany(models.Member)
+        // User.belongsTo(models.Staff)
     }
   }
   User.init({
@@ -24,8 +29,6 @@ module.exports = (sequelize, DataTypes) => {
     phone: DataTypes.STRING,
     password: DataTypes.STRING,
     image: DataTypes.BLOB,
-    room:DataTypes.STRING,
-    acc_type:DataTypes.STRING,
     groupId:DataTypes.INTEGER,
   }, {
     sequelize,

@@ -5,8 +5,8 @@ const { sequelize } = require('../models');
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Role', {
-      feeId: {
+    await queryInterface.createTable('Fee', {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -28,9 +28,7 @@ module.exports = {
         type: Sequelize.FLOAT
 
       },
-      userId:{
-        type: Sequelize.INTEGER
-      },
+     
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -43,6 +41,6 @@ module.exports = {
     
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Role');
+    await queryInterface.dropTable('Fee');
   }
 };

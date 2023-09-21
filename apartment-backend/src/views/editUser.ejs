@@ -26,20 +26,34 @@
         </div>
       
         <div class="mb-3 col-6">
-            <label for="username" class="form-label">name</label>
+            <label for="username" class="form-label">username</label>
             <input value="<%=userData.username%>" type="text" name="username" class="form-control" id="username"  required>
           </div>
           <div class="col-6">
 
           </div>
+          <div class="mb-3 col-6">
+            <label for="lastName" class="form-label">lastName</label>
+            <input value="<%=userData.lastName%>" type="text" name="lastName" class="form-control" id="lastName"  required>
+          </div>
+          <div class="col-6">
+
+          </div>
+          <div class="mb-3 col-6">
+            <label for="firstName" class="form-label">firstName</label>
+            <input value="<%=userData.firstName%>" type="text" name="firstName" class="form-control" id="firstName"  required>
+          </div>
+          <div class="col-6">
+
+          </div>
+          <div class="mb-3 col-6">
+            <label for="phone" class="form-label">phone</label>
+            <input value="<%=userData.phone%>" type="text" name="phone" class="form-control" id="phone"  required>
+          </div>
+          <div class="col-6">
+
+          </div>
         
-        
-        <div class="col-6">
-            <select  class="form-select" name="type" required aria-label="Default select example">
-              <option value="<%=userData.acc_type%>"><%=userData.acc_type%></option>
-               
-              </select>
-    </div>
        <div class="col-12 pt-4">
         <button type="submit" class="btn btn-primary ">Submit</button>
     </div>

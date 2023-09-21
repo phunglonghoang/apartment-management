@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Fee.belongsToMany(models.User, {through: 'Fee_User'})
     }
   }
   Fee.init({
@@ -19,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
    unitPrice: DataTypes.INTEGER,
    oldNumber: DataTypes.FLOAT,
    newNumber: DataTypes.FLOAT,
-   userId: DataTypes.INTEGER,
+   
 
 
 

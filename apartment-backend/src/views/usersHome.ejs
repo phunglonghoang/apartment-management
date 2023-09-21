@@ -35,7 +35,44 @@
           <label for="exampleInputPassword1" class="form-label">Password</label>
           <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
         </div>
+        <div class="col-6">
+
+        </div>
+      <div class="mb-3 col-6">
+        <label for="firstName" class="form-label">first name</label>
+        <input type="text" name="firstName" class="form-control" id="firstName" required>
+      </div>
         <div class="col-6"></div>
+        <div class="mb-3 col-6">
+          <label for="lastName" class="form-label">last name</label>
+          <input type="text" name="lastName" class="form-control" id="lastName" required>
+        </div>
+          <div class="col-6"></div>
+          <div class="mb-3 col-6">
+            <label for="room" class="form-label">room</label>
+            <input type="text" name="room" class="form-control" id="room" required>
+          </div>
+            <div class="col-6"></div>
+            <div class="mb-3 col-6">
+              <label for="birthDay" class="form-label">birth day</label>
+              <input type="date" name="birthDay" class="form-control" id="birthDay" required>
+            </div>
+              <div class="col-6"></div>
+              <div class="mb-3 col-6">
+                <label for="sex" class="form-label">sex</label>
+                <input type="text" name="sex" class="form-control" id="sex" required>
+              </div>
+                <div class="col-6"></div>
+                <div class="mb-3 col-6">
+                  <label for="phone" class="form-label">phone</label>
+                  <input type="text" name="phone" class="form-control" id="phone" required>
+                </div>
+                  <div class="col-6"></div>
+                  <div class="mb-3 col-6">
+                    <label for="joinDate" class="form-label">join date</label>
+                    <input type="date" name="joinDate" class="form-control" id="joinDate" required>
+                  </div>
+                    <div class="col-6"></div>
         <div class="col-6">
             <select class="form-select" name="acc_type" required aria-label="Default select example">
               <option value="thành viên">thành viên</option>
@@ -65,8 +102,11 @@
                               <th scope="col">id</th>
                               <th scope="col">email</th>
                               <th scope="col">user name</th>
+                              <th scope="col">first name</th>
+                              <th scope="col">last name</th>
                               <th scope="col">password</th>
-                              <th scope="col">loại user</th>
+                              <th scope="col">sex</th>
+                             
                               <th scope="col">sửa , xóa, chi tiết</th>
                             </tr>
                           </thead>
@@ -77,8 +117,11 @@
                                 <td><%= item.id%></td>
                                 <td><%= item.email%></td>
                                 <td><%= item.username%></td>
+                                <td><%= item.firstName%></td>
+                                <td><%= item.lastName%></td>
                                 <td><%= item.password%></td>
-                                <td><%= item.acc_type%></td>
+                                <td><%= item.sex%></td>
+                                
                                 
                                 <td> 
                                   <form action="/edit-user/<%=  item.id %>" method="get" style="display: inline;">

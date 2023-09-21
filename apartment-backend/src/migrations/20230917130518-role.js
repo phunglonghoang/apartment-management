@@ -6,13 +6,13 @@ const { sequelize } = require('../models');
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Role', {
-      roleId: {
+     id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      url: {
         type: Sequelize.STRING
       },
       description: {

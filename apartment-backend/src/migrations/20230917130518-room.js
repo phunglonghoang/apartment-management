@@ -5,18 +5,21 @@ const { sequelize } = require('../models');
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Assign_User', {
-      auId: {
+    await queryInterface.createTable('Room', {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      asId: {
-        type: Sequelize.INTEGER
+      status: {
+        type: Sequelize.STRING
       },
-      userId: {
-        type: Sequelize.INTEGER
+      area: {
+        type: Sequelize.STRING
+      },
+      userId:{
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -30,6 +33,6 @@ module.exports = {
     
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Assign_User');
+    await queryInterface.dropTable('Room');
   }
 };

@@ -6,7 +6,7 @@ const { sequelize } = require('../models');
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Group_Role', {
-      groupRoleId: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,

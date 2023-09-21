@@ -21,9 +21,7 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      room: {
-        type: Sequelize.STRING
-      },
+     
       firstName:{
         type: Sequelize.STRING
       },
@@ -40,9 +38,7 @@ module.exports = {
       phone:{
         type: Sequelize.STRING
       },
-      acc_type:{
-        type: Sequelize.STRING
-      },
+     
       joinDate:{
         allowNull: true,
         type: Sequelize.DATE

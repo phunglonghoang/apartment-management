@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 import mysql from 'mysql2/promise'
+import { where } from 'sequelize';
 
 const bluebird = require('bluebird');
 import db from '../models/index.js'
@@ -9,7 +10,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
 //   password : 'secret',
-  database: 'apartment2'
+  database: 'apartment'
 });
  
 const salt = bcrypt.genSaltSync(10);
@@ -18,7 +19,7 @@ const hashPassWord =(userPassword)=>{
     return hashPassWord;
 }
 //hàm tạo user
-const createNewUser =async (email, username, password,acc_type )=> {
+const createNewUser =async (email, username, password,firstName,lastName,room,birthDay,sex,phone,joinDate )=> {
   
     let hashPass = hashPassWord(password)
     try {
@@ -26,7 +27,14 @@ const createNewUser =async (email, username, password,acc_type )=> {
             email: email,
             username: username,
             password:hashPass,
-            acc_type:acc_type
+            firstName: firstName,
+            lastName: lastName,
+            room: room,
+            birthDay:birthDay,
+            sex:sex,
+            phone: phone,
+            joinDate: joinDate,
+
         })
     } catch (error) {
         console.log("check log", error)
@@ -36,8 +44,30 @@ const createNewUser =async (email, username, password,acc_type )=> {
 }
 //hàm lấy user
 const getUserList =async() => {
-   
+   //test relationship
+   let user =await db.User.findOne({
+    where: {id: 2},
+    attributes: ["id", "username"],
+    include :{model: db.Group,attributes: ["id", "name"], } ,
+    raw :true,
+    nest: true
+   })
+   console.log(">>check relationship", user)
 
+   //test lấy rel quyền
+   let r = await db.Role.findAll({
+    attributes: ["id", "url"],
+    include: {
+        model: db.Group, 
+        where : {id: 2,},
+        attributes: ["id", "name"]
+    },
+    raw: true,
+    nest: true
+   })
+   console.log("check role gruop ", r)
+
+   //lấy user
 try {
     let users=[];
     users= await db.User.findAll();
@@ -74,12 +104,12 @@ try {
 }
 }
 //update User
-const UpDateUser = async( email, username,  acc_type,id) =>{
+const UpDateUser = async( email, username,  firstname,lastname,phone,id) =>{
    
 try {
    await db.User.update(
     {
-        email:email, username:username
+        email:email, username:username, firstname:firstname, lastname:lastname, phone:phone
     },
     {where: {id:id}}
    )
