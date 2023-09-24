@@ -2,7 +2,6 @@ import bcrypt from 'bcryptjs';
 import mysql from 'mysql2/promise'
 import { where } from 'sequelize';
 
-const bluebird = require('bluebird');
 import db from '../models/index.js'
 
 
