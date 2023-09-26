@@ -1,22 +1,14 @@
 import express from "express";
-import { handleHelloWorld } from "../controller/home/homeController";
-import userController from "../controller/users/userController";
-import apiController from "../controller/api/apiController"
+
+import apiRegisterController from "../controller/api/apiRegisterController"
+import apiLoginController from "../controller/api/apiLoginController"
 
 const router = express.Router();
 
 const initApiRoutes = (app) => {
-    router.get("/", handleHelloWorld);
-    router.get("/users/user-list",userController.handelUserPage );
-    router.post("/users/create-user",userController.handleCreateUser);  
-    router.post("/delete-user/:id", userController.handelDeleteUser)
-    router.get("/edit-user/:id",userController.getEditUserPage)
-    router.post("/users/edit-user", userController.handelUpdateUser);
-
-
-
- 
-    router.post("/register",apiController.handelRegister)
+   
+    router.post("/register",apiRegisterController.handelRegister)
+    router.post("/login",apiLoginController.handelLogin)
     return app.use("/api/v1",router);
 }
 

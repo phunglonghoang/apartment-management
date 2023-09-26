@@ -1,7 +1,7 @@
 import express from "express";
 import { handleHelloWorld } from "../controller/home/homeController";
 import userController from "../controller/users/userController";
-import apiController from "../controller/api/apiController"
+import apiController from "../controller/api/apiRegisterController"
 
 const router = express.Router();
 
@@ -15,7 +15,6 @@ const initWebRoutes = (app) => {
 
 
 
-    router.get("/testAPI",apiController.testAPI)
     return app.use("/",router);
 }
 

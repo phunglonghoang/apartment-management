@@ -1,6 +1,6 @@
 import db from "../models/index"
 import bcrypt from 'bcryptjs';
-
+ 
 const salt = bcrypt.genSaltSync(10);
 const hashUserPassWord =(userPassword)=>{
     let hashPassWord = bcrypt.hashSync(userPassword, salt);
@@ -50,7 +50,7 @@ const registerNewUser =async (rawUserData) => {
         return {
             EM: 'sđt đã tồn tại',
             EC: 1,
-        
+            
         }
     }
     let isUserNameExist =  await checkUserNameExist(rawUserData.username);
@@ -81,6 +81,7 @@ const registerNewUser =async (rawUserData) => {
     return {
         EM: 'đã tạo user thành công',
         EC: 0
+        
     }
    } catch (error) {
     console.log(">>>>> lỗi ", error)

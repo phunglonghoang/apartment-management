@@ -8,7 +8,7 @@ import db from '../models/index.js'
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-//   password : 'secret',
+
   database: 'apartment'
 });
  

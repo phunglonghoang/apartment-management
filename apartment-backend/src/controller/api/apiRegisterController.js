@@ -1,12 +1,7 @@
 import validator from 'validator';
 import {check,validationResult } from 'express-validator'
 import loginRegisterService from '../../service/loginRegisterService'
-const testAPI = (req, res)=>{
-    return res.status (200).json({
-        message : "oke",
-        data: "con xin lỗi"
-    })
-}
+
 
 const handelRegister= async (req, res)=>{
     try {
@@ -32,6 +27,7 @@ const handelRegister= async (req, res)=>{
                 DT: '',
             })
         }
+        
         //create User
         let data = await loginRegisterService.registerNewUser(req.body)
         return res.status(200).json({
@@ -49,6 +45,5 @@ const handelRegister= async (req, res)=>{
     
 }
 module.exports ={
-    testAPI,
     handelRegister
 }
