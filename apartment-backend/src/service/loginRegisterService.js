@@ -75,8 +75,8 @@ const registerNewUser =async (rawUserData) => {
         room: rawUserData.room,
         birthDay:rawUserData.birthDay,
         sex:rawUserData.sex,
-        
         joinDate: rawUserData.joinDate,
+        groupId: rawUserData.groupId
     })
     return {
         EM: 'đã tạo user thành công',
